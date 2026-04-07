@@ -3,7 +3,8 @@ from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 import smtplib
 from email.mime.text import MIMEText
-
+import qrcode
+import os
 app = Flask(__name__)
 app.secret_key = "csrams_secret_key"
 
@@ -69,6 +70,43 @@ with app.app_context():
         db.session.add(teacher)
         db.session.commit()
 
+# The URL you want to encode
+url = "https://csramsrecruit.onrender.com/"
+
+# Generate QR code
+qr = qrcode.QRCode(
+    version=1,
+    error_correction=qrcode.constants.ERROR_CORRECT_L,
+    box_size=10,
+    border=4,
+)
+qr.add_data(url)
+qr.make(fit=True)
+
+# Create an image
+img = qr.make_image(fill_color="black", back_color="white")
+
+# Save the image
+img.save("rams_recruit_qr.png")
+
+print("QR code saved as rams_recruit_qr.png")
+
+@app.route("/qrcode")
+def generate_qr():
+    url = "http://127.0.0.1:5000"  # change later when deployed
+
+    img = qrcode.make(url)
+
+    if not os.path.exists("static"):
+        os.makedirs("static")
+
+    img.save("static/site_qr.png")
+
+    return f"""
+    <h2>Scan to Visit RecruitCSRams</h2>
+    <img src='/static/site_qr.png' width='300'>
+    """
+
 # ======================
 # HOME PAGE (KEEP YOUR RED DESIGN)
 # ======================
@@ -83,8 +121,14 @@ def home():
             body {
                 margin: 0;
                 font-family: Arial, sans-serif;
-                background: linear-gradient(to right, #8B0000, #ff4d4d);
-                color: white;
+background: linear-gradient(
+    rgba(139,0,0,0.85),
+    rgba(139,0,0,0.85)
+), url('/static/campus.jpg');
+
+background-size: cover;
+background-position: center;
+background-attachment: fixed;                color: white;
                 text-align: center;
             }
             .container {
@@ -492,4 +536,4 @@ def logout():
 # ======================
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=10000)
