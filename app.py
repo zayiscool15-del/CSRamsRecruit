@@ -83,14 +83,8 @@ def home():
             body {
                 margin: 0;
                 font-family: Arial, sans-serif;
-background: linear-gradient(
-    rgba(139,0,0,0.85),
-    rgba(139,0,0,0.85)
-), url('/static/campus.jpg');
-
-background-size: cover;
-background-position: center;
-background-attachment: fixed;                color: white;
+                background: linear-gradient(to right, #8B0000, #ff4d4d);
+                color: white;
                 text-align: center;
             }
             .container {
