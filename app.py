@@ -786,7 +786,7 @@ def Program():
                         <p>Student collaboration and engagement.</p>
                     </a>
 
-                    <a class="gallery-card" href="/static/ra2.webp" target="_blank">
+                    <a class="gallery-card" href="/static/ra2.jpg" target="_blank">
                         <img src="/static/ra2.jpg" alt="WSSU student life 2">
                         <p>Hands-on learning and technology opportunities.</p>
                     </a>
