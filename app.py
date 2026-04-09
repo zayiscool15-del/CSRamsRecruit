@@ -787,7 +787,7 @@ def Program():
                     </a>
 
                     <a class="gallery-card" href="/static/ra2.webp" target="_blank">
-                        <img src="/static/ra2.webp" alt="WSSU student life 2">
+                        <img src="/static/ra2.jpg" alt="WSSU student life 2">
                         <p>Hands-on learning and technology opportunities.</p>
                     </a>
 
@@ -810,8 +810,7 @@ def Program():
                     <h3>Student Experience at WSSU</h3>
 
                     <video controls preload="metadata" playsinline poster="/static/ra3.jpg" style="width:100%; max-width:900px; border-radius:18px; box-shadow:0 12px 30px rgba(0,0,0,0.35);">
-                        <source src="/static/video/ram.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
+<source src="/static/video/ram.mp4" type="video/mp4">                        Your browser does not support the video tag.
                     </video>
 
                     <p style="margin-top:15px;">
