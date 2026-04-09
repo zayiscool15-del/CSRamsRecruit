@@ -183,7 +183,7 @@ background-attachment: fixed;                color: white;
 
             <a href="/register" class="btn">Apply</a>
             <a href="/student_login" class="btn">Student Login</a>
-            <a href="/login" class="btn">Teacher Login</a>
+            <a href="/login" class="btn">Faculty Login</a>
 
             <div class="section">
                 <div class="card">💡 Innovative Learning</div>
