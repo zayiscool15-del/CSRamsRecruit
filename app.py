@@ -176,6 +176,7 @@ background-attachment: fixed;                color: white;
         <div class="container">
 
             <h1>Computer Science & Information Technology Programs</h1> Trigger redeploy
+            <p>Explore the Computer Science & IT Program at Winston-Salem State University</p>
             <p><b>Winston-Salem State University</b></p>
             <p>📞 336-750-2485 | ✉️ jonese@wssu.edu</p>
 
