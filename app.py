@@ -781,13 +781,13 @@ def Program():
                 <h2>Life in Computer Science & IT at WSSU</h2>
 
                 <div class="gallery-grid">
-                    <a class="gallery-card" href="/static/ra1.jpg" target="_blank">
-                        <img src="/static/ra1.jpg" alt="WSSU student life 1">
+                    <a class="gallery-card" href="/static/images/ra1.jpg" target="_blank">
+                        <img src="/static/images/ra1.jpg" alt="WSSU student life 1">
                         <p>Student collaboration and engagement.</p>
                     </a>
 
-                    <a class="gallery-card" href="/static/ra2.jpg" target="_blank">
-                        <img src="/static/ra2.jpg" alt="WSSU student life 2">
+                    <a class="gallery-card" href="/static/images/ra2.jpg" target="_blank">
+                        <img src="/static/images/ra2.jpg" alt="WSSU student life 2">
                         <p>Hands-on learning and technology opportunities.</p>
                     </a>
 
