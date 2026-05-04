@@ -17,7 +17,6 @@ from reportlab.lib import colors
 app = Flask(__name__)
 app.secret_key = "csrams_secret_key"
 
-
 @app.route("/url")
 def function_name():
     return render_template_string(""" HTML HERE """)
@@ -988,7 +987,7 @@ def student_login():
      background:white;padding:10px;">
         <h1>Student Login</h1>
         <p>Access your WSSU Computer Science & IT student dashboard.</p>
-
++
         <div style="max-width:420px;margin:auto;background:white;padding:30px;border-radius:18px;box-shadow:0 8px 22px rgba(0,0,0,0.2);">
             <form method="POST">
                 <input type="email" name="email" placeholder="Email" required style="width:90%;"><br>
