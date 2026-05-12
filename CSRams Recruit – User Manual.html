@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<!-- saved from url=(0028)http://localhost/RamsRecruit -->
+<html lang="en" suppresshydrationwarning="true" data-qb-installed="true"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>CSRams Recruit – User Manual</title>
+  <style>
+    :root {
+      --burnt-orange: #cc5500;
+      --deep-orange: #a34400;
+      --soft-orange: #ffe9d6;
+      --green: #3a7a4a;
+      --soft-green: #e0f3e7;
+      --text-dark: #222222;
+      --text-muted: #555555;
+      --bg-light: #fffaf5;
+      --border-light: #f0d4b3;
+      --flower-petal: #ffb38a;
+      --flower-center: #f7c948;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top left, #ffe9d6 0, #fffaf5 40%, #f4fff7 100%);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .manual-wrapper {
+      max-width: 960px;
+      margin: 40px auto;
+      background: #ffffff;
+      border-radius: 18px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(204, 85, 0, 0.18);
+      overflow: hidden;
+    }
+
+    header.manual-header {
+      position: relative;
+      padding: 40px 40px 30px;
+      background: linear-gradient(135deg, var(--burnt-orange), var(--deep-orange));
+      color: #ffffff;
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .manual-title {
+      font-size: 2.4rem;
+      margin: 0 0 8px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .manual-subtitle {
+      font-size: 1.05rem;
+      margin: 0 0 18px;
+      opacity: 0.9;
+    }
+
+    .manual-meta {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .tag-pill {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.16);
+      font-size: 0.8rem;
+      margin-right: 8px;
+    }
+
+    /* Floral corner decorations */
+    .flower-corner {
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      opacity: 0.35;
+    }
+
+    .flower-top-right {
+      top: -10px;
+      right: -10px;
+      transform: rotate(10deg);
+    }
+
+    .flower-bottom-left {
+      bottom: -20px;
+      left: -20px;
+      transform: rotate(-18deg);
+    }
+
+    .flower {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+    }
+
+    .petal {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background: var(--flower-petal);
+      border-radius: 40px 40px 0 40px;
+      transform-origin: 100% 100%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+    }
+
+    .petal:nth-child(1) { transform: rotate(0deg) translate(0, -10px); }
+    .petal:nth-child(2) { transform: rotate(72deg) translate(0, -10px); }
+    .petal:nth-child(3) { transform: rotate(144deg) translate(0, -10px); }
+    .petal:nth-child(4) { transform: rotate(216deg) translate(0, -10px); }
+    .petal:nth-child(5) { transform: rotate(288deg) translate(0, -10px); }
+
+    .flower-center {
+      position: absolute;
+      top: 22px;
+      left: 22px;
+      width: 36px;
+      height: 36px;
+      background: var(--flower-center);
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.6);
+    }
+
+    main.manual-body {
+      padding: 30px 40px 40px;
+      background: linear-gradient(180deg, #ffffff 0, #fffdf8 40%, #f7fff9 100%);
+    }
+
+    .toc-card {
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--soft-orange), var(--soft-green));
+      padding: 18px 20px 16px;
+      border: 1px solid rgba(204, 85, 0, 0.25);
+      margin-bottom: 26px;
+    }
+
+    .toc-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--deep-orange);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toc-title span {
+      font-size: 1.3rem;
+    }
+
+    .toc-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      columns: 2;
+      column-gap: 40px;
+      font-size: 0.95rem;
+    }
+
+    .toc-list li {
+      margin-bottom: 4px;
+    }
+
+    .toc-list a {
+      color: var(--text-dark);
+      text-decoration: none;
+    }
+
+    .toc-list a:hover {
+      text-decoration: underline;
+      color: var(--burnt-orange);
+    }
+
+    section.manual-section {
+      margin-bottom: 26px;
+      padding-bottom: 18px;
+      border-bottom: 1px dashed rgba(204, 85, 0, 0.25);
+    }
+
+    section.manual-section:last-of-type {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .section-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--green);
+      margin-bottom: 4px;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      margin: 0 0 10px;
+      color: var(--deep-orange);
+    }
+
+    p {
+      margin: 0 0 8px;
+      color: var(--text-muted);
+      font-size: 0.97rem;
+    }
+
+    ul, ol {
+      margin: 6px 0 10px 20px;
+      padding-left: 14px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    li {
+      margin-bottom: 4px;
+    }
+
+    .callout {
+      border-radius: 10px;
+      padding: 10px 12px;
+      background: var(--soft-green);
+      border: 1px solid rgba(58, 122, 74, 0.35);
+      font-size: 0.9rem;
+      margin-top: 6px;
+    }
+
+    .callout strong {
+      color: var(--green);
+    }
+
+    .highlight-box {
+      border-radius: 12px;
+      padding: 12px 14px;
+      background: var(--soft-orange);
+      border: 1px solid rgba(204, 85, 0, 0.35);
+      font-size: 0.92rem;
+      margin-top: 6px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(58, 122, 74, 0.08);
+      color: var(--green);
+      font-size: 0.78rem;
+      margin-left: 4px;
+    }
+
+    .footer-note {
+      margin-top: 24px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+      }
+      .manual-wrapper {
+        margin: 0;
+        box-shadow: none;
+        border-radius: 0;
+        border: none;
+      }
+      header.manual-header {
+        border-radius: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="manual-wrapper">
+    <header class="manual-header">
+      <div class="header-content">
+        <div class="tag-pill">User Manual</div>
+        <div class="tag-pill">CSRams Recruit</div>
+        <h1 class="manual-title">CSRams Recruit</h1>
+        <p class="manual-subtitle">
+          A floral-themed guide to your WSSU CS Open House &amp; Rams Recruit experience.
+        </p>
+        <p class="manual-meta">
+          Winston-Salem State University · CST 6305 Project<br>
+          Created by: G’La Dunn
+        </p>
+      </div>
+
+      <!-- Floral decorations -->
+      <div class="flower-corner flower-top-right">
+        <div class="flower" style="top: 20px; left: 30px;">
+          <div class="petal"></div>
+          <div class="petal"></div>
+          <div class="petal"></div>
+          <div class="petal"></div>
+          <div class="petal"></div>
+          <div class="flower-center"></div>
+        </div>
+      </div>
+
+      <div class="flower-corner flower-bottom-left">
+        <div class="flower" style="top: 40px; left: 20px;">
+          <div class="petal"></div>
+          <div class="petal"></div>
+          <div class="petal"></div>
+          <div class="petal"></div>
+          <div class="petal"></div>
+          <div class="flower-center"></div>
+        </div>
+      </div>
+    </header>
+
+    <main class="manual-body">
+      <!-- Table of Contents -->
+      <div class="toc-card">
+        <div class="toc-title">
+          <span>✿</span> Table of Contents
+        </div>
+        <ul class="toc-list">
+          <li><a href="http://localhost/RamsRecruit#overview">1. Overview of CSRams Recruit</a></li>
+          <li><a href="http://localhost/RamsRecruit#navigation">2. Site Navigation &amp; Layout</a></li>
+          <li><a href="http://localhost/RamsRecruit#home">3. Home Page – WSSU CS Open House</a></li>
+          <li><a href="http://localhost/RamsRecruit#programs">4. Programs Page – CS &amp; IT Programs</a></li>
+          <li><a href="http://localhost/RamsRecruit#register">5. Register Page – WSSU Program Registration</a></li>
+          <li><a href="http://localhost/RamsRecruit#student-login">6. Student Login – Interest &amp; Recommendations</a></li>
+          <li><a href="http://localhost/RamsRecruit#teacher-login">7. Teacher Login – Access to Dashboard</a></li>
+          <li><a href="http://localhost/RamsRecruit#teacher-dashboard">8. Teacher Dashboard – Managing Students</a></li>
+          <li><a href="http://localhost/RamsRecruit#demo-notes">9. Demo &amp; Data Storage Notes</a></li>
+          <li><a href="http://localhost/RamsRecruit#credits">10. Credits</a></li>
+        </ul>
+      </div>
+
+      <!-- 1. Overview -->
+      <section id="overview" class="manual-section">
+        <div class="section-label">Section 1</div>
+        <h2 class="section-title">Overview of CSRams Recruit</h2>
+        <p>
+          CSRams Recruit is a web experience designed for the WSSU Computer Science &amp; Information
+          Technology Open House. It helps prospective students explore programs, register their
+          interest, log in as students, and allows teachers to view and manage those registrations.
+        </p>
+        <p>
+          The site includes separate flows for students and teachers, all wrapped in a clean,
+          WSSU-branded interface. This manual explains what each page does and how a visitor is
+          expected to move through the system.
+        </p>
+        <div class="highlight-box">
+          <strong>High-level flow:</strong> Explore programs → Register → Student Login &amp; recommendations →
+          Teacher Login → Teacher Dashboard.
+        </div>
+      </section>
+
+      <!-- 2. Navigation -->
+      <section id="navigation" class="manual-section">
+        <div class="section-label">Section 2</div>
+        <h2 class="section-title">Site Navigation &amp; Layout</h2>
+        <p>
+          A consistent navigation bar appears at the top of every page, making it easy to move
+          between sections of the site.
+        </p>
+        <p><strong>Navigation items:</strong></p>
+        <ul>
+          <li><strong>Home</strong> – WSSU CS Open House landing page</li>
+          <li><strong>Programs</strong> – Computer Science &amp; Information Technology programs</li>
+          <li><strong>Register</strong> – WSSU Program Registration form</li>
+          <li><strong>Student Login</strong> – Access to student dashboard &amp; recommendations</li>
+          <li><strong>Teacher Login</strong> – Access to teacher dashboard</li>
+          <li><strong>Teacher Dashboard</strong> – Manage student registrations</li>
+        </ul>
+        <div class="callout">
+          <strong>How to use:</strong> Click any menu item once to switch pages. The navigation bar
+          remains at the top so users can always move to another section.
+        </div>
+      </section>
+
+      <!-- 3. Home Page -->
+      <section id="home" class="manual-section">
+        <div class="section-label">Section 3</div>
+        <h2 class="section-title">Home Page – WSSU CS Open House</h2>
+        <p>
+          The Home page welcomes visitors to the WSSU Computer Science Open House. It introduces the
+          event and connects users to the CS Rams Recruit experience.
+        </p>
+        <p><strong>Typical elements on the Home page:</strong></p>
+        <ul>
+          <li>WSSU logo and branding</li>
+          <li>Main heading: “Welcome to WSSU CS Open House”</li>
+          <li>Subheading describing connection to Computer Science &amp; IT at WSSU</li>
+          <li>A QR code labeled “Scan to open CS Rams Recruit”</li>
+          <li>Buttons such as:
+            <ul>
+              <li><strong>Explore Programs</strong></li>
+              <li><strong>Student Login</strong></li>
+              <li><strong>Teacher Login</strong></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="highlight-box">
+          The Home page acts as the “front door” to your experience—visitors can quickly jump to
+          Programs, Register, or the login flows.
+        </div>
+      </section>
+
+      <!-- 4. Programs Page -->
+      <section id="programs" class="manual-section">
+        <div class="section-label">Section 4</div>
+        <h2 class="section-title">Programs Page – CS &amp; IT Programs</h2>
+        <p>
+          The Programs page introduces the WSSU Computer Science Department and highlights the main
+          degree options available to students.
+        </p>
+        <p><strong>Computer Science Department section includes:</strong></p>
+        <ul>
+          <li><strong>Department:</strong> Computer Science</li>
+          <li><strong>Phone:</strong> 336-750-2480</li>
+          <li><strong>Email:</strong> jonese@wssu.edu</li>
+        </ul>
+        <p><strong>Buttons on this page:</strong></p>
+        <ul>
+          <li><strong>Student Registration</strong> (red button)</li>
+          <li><strong>Student Login</strong> (black button)</li>
+        </ul>
+        <p><strong>Programs of Study section:</strong></p>
+        <p>Intro text: “Click a program to learn more about course options, student experience, and opportunities.”</p>
+        <ul>
+          <li>
+            <strong>Bachelor of Science in Computer Science</strong><br>
+            Advanced programming, cybersecurity, AI, and high-performance computing.<br>
+            Link: <em>View Program →</em>
+          </li>
+          <li>
+            <strong>Bachelor of Science in Information Technology</strong><br>
+            Hands-on IT training with networking, systems, and internships.<br>
+            Link: <em>View Program →</em>
+          </li>
+        </ul>
+        <div class="callout">
+          <strong>Tip:</strong> This page is ideal for prospective students who want to compare CS vs IT
+          and decide which path fits them best.
+        </div>
+      </section>
+
+      <!-- 5. Register Page -->
+      <section id="register" class="manual-section">
+        <div class="section-label">Section 5</div>
+        <h2 class="section-title">Register Page – WSSU Program Registration</h2>
+        <p>
+          The Register page is where prospective students formally submit their interest in WSSU
+          Computer Science or Information Technology.
+        </p>
+        <p><strong>Page title:</strong> WSSU Program Registration</p>
+        <p><strong>Form fields include:</strong></p>
+        <ul>
+          <li>First Name</li>
+          <li>Last Name</li>
+          <li>Email</li>
+          <li>Phone Number</li>
+          <li>City / State</li>
+          <li>Create Password</li>
+          <li>Select Program of Interest (dropdown)</li>
+          <li>Select Entry Semester (dropdown)</li>
+        </ul>
+        <p><strong>Submit button:</strong> Register (red button)</p>
+        <div class="callout">
+          <strong>How it fits the flow:</strong> After registering, students can use the same email and
+          password on the Student Login page to access their dashboard and recommendations.
+        </div>
+      </section>
+
+      <!-- 6. Student Login -->
+      <section id="student-login" class="manual-section">
+        <div class="section-label">Section 6</div>
+        <h2 class="section-title">Student Login – Interest &amp; Recommended Courses</h2>
+        <p>
+          The Student Login page allows students to access their personalized WSSU CS &amp; IT dashboard.
+          From there, they can choose their interest area and receive recommended courses.
+        </p>
+        <p><strong>Page layout includes:</strong></p>
+        <ul>
+          <li>WSSU logo and branding</li>
+          <li>Heading: Student Login</li>
+          <li>Subheading: “Access your WSSU Computer Science &amp; IT student dashboard.”</li>
+          <li>Email field</li>
+          <li>Password field</li>
+          <li>Login button (red)</li>
+          <li>Note: “Static demo accepts any entered email/password after registration.”</li>
+        </ul>
+        <p><strong>After logging in, students can:</strong></p>
+        <ul>
+          <li>Select their <strong>interest area</strong> (e.g., AI, cybersecurity, software engineering, IT, etc.)</li>
+          <li>View a list of <strong>recommended courses</strong> based on that interest</li>
+          <li>See their basic information and selections in a student dashboard view</li>
+        </ul>
+        <div class="highlight-box">
+          This page is the bridge between registration and personalized guidance<span class="badge">Student Flow</span>—it
+          turns a simple signup into a tailored course recommendation experience.
+        </div>
+      </section>
+
+      <!-- 7. Teacher Login -->
+      <section id="teacher-login" class="manual-section">
+        <div class="section-label">Section 7</div>
+        <h2 class="section-title">Teacher Login – Access to Teacher Dashboard</h2>
+        <p>
+          The Teacher Login page is the entry point for instructors or staff who need to view and
+          manage student registrations.
+        </p>
+        <p><strong>Page layout includes:</strong></p>
+        <ul>
+          <li>WSSU logo and branding</li>
+          <li>Heading: Teacher Login</li>
+          <li>Username field</li>
+          <li>Password field</li>
+          <li>Login button (red)</li>
+          <li>Note: “Static demo does not verify real credentials.”</li>
+        </ul>
+        <p><strong>Purpose:</strong></p>
+        <ul>
+          <li>Provide a simple way for teachers to access the Teacher Dashboard</li>
+          <li>Demonstrate a login flow in a static, demo-friendly environment</li>
+        </ul>
+        <div class="callout">
+          <strong>Demo note:</strong> In this version, any username/password combination can be used to
+          access the Teacher Dashboard, since it is a static demonstration.
+        </div>
+      </section>
+
+      <!-- 8. Teacher Dashboard -->
+      <section id="teacher-dashboard" class="manual-section">
+        <div class="section-label">Section 8</div>
+        <h2 class="section-title">Teacher Dashboard – Managing Student Registrations</h2>
+        <p>
+          The Teacher Dashboard is the administrative view where teachers can see all registered
+          students and manage their records.
+        </p>
+        <p><strong>Page layout includes:</strong></p>
+        <ul>
+          <li>WSSU logo and branding</li>
+          <li>Heading: Teacher Dashboard</li>
+          <li>Subheading: “Manage student registrations. In this static version, data is stored only in the browser.”</li>
+          <li>A table with columns:
+            <ul>
+              <li>Student ID</li>
+              <li>Name</li>
+              <li>Email</li>
+              <li>Phone</li>
+              <li>Location</li>
+              <li>Program</li>
+              <li>Semester</li>
+            </ul>
+          </li>
+          <li>If no students exist yet, the message: “No students registered yet.”</li>
+          <li>Logout button (red) at the bottom</li>
+        </ul>
+        <p><strong>Teacher actions:</strong></p>
+        <ul>
+          <li>View all students who have registered through the Register page</li>
+          <li>Optionally delete students from the list (if delete controls are implemented)</li>
+          <li>Log out and return to the Teacher Login page</li>
+        </ul>
+        <div class="highlight-box">
+          This page represents the “admin view” of your project<span class="badge">Teacher Flow</span>—it shows how
+          teachers could manage student interest data in a real system.
+        </div>
+      </section>
+
+      <!-- 9. Demo Notes -->
+      <section id="demo-notes" class="manual-section">
+        <div class="section-label">Section 9</div>
+        <h2 class="section-title">Demo &amp; Data Storage Notes</h2>
+        <p>
+          CSRams Recruit is implemented as a <strong>static demo</strong>, which means it focuses on
+          user experience and flow rather than full backend integration.
+        </p>
+        <p><strong>Key demo behaviors:</strong></p>
+        <ul>
+          <li><strong>Student Login:</strong> Accepts any email/password combination after registration.</li>
+          <li><strong>Teacher Login:</strong> Does not verify real credentials; any username/password works.</li>
+          <li><strong>Teacher Dashboard:</strong> Stores data only in the browser (e.g., local storage) and
+            does not persist across all environments.</li>
+        </ul>
+        <div class="callout">
+          <strong>Important:</strong> In a production system, all logins would be secured, and student
+          data would be stored in a protected database. This project demonstrates the interface and
+          flow, not full authentication.
+        </div>
+      </section>
+
+      <!-- 10. Credits -->
+      <section id="credits" class="manual-section">
+        <div class="section-label">Section 10</div>
+        <h2 class="section-title">Credits</h2>
+
+        <p><strong>Project:</strong> CSRams Recruit – WSSU CS Open House Experience</p>
+        <p><strong>Course:</strong> CST 6305 – Final Project</p>
+        <p><strong>Institution:</strong> Winston-Salem State University</p>
+
+        <p><strong>Created by:</strong></p>
+        <ul>
+          <li>G’La Dunn</li>
+          <li>Afari, Ollson J.</li>
+          <li>Anderson, Isaiah</li>
+          <li>Neal, Azaevion</li>
+          <li>Aliyah Tomlinson</li>
+          <li>Weah, Henry</li>
+        </ul>
+
+        <div class="callout">
+          This manual reflects the collaborative work of the CSRams Recruit project team and is styled
+          in a warm, burnt-orange and green floral theme.
+        </div>
+      </section>
+
+      <div class="footer-note">
+        To save this manual as a PDF: open this file in your browser, then use
+        <strong>Print → Save as PDF</strong>.
+      </div>
+    </main>
+  </div>
+
+
+</body></html>
